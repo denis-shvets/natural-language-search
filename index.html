@@ -4,15 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>natural-language-search</title>
-    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/playground/style.css" />
   </head>
 
   <body>
     <div id="app">
-      <div>
-        <h1>natural-language-search</h1>
+      <h1>natural-language-search</h1>
+      <div class="info-section">
+        <button type="button" id="info-toggle">
+          Demo is configured to search for orders, disputes, and settlements
+          <span id="toggle-icon">▶</span>
+        </button>
+        <div id="info-details" class="collapsed">
+          <p class="info-item">
+            <strong>Order</strong> filters: status
+            <span
+              >(Authorized, Captured, Partially captured, Expired,
+              Canceled)</span
+            >, created from, created to
+          </p>
+          <p class="info-item">
+            <strong>Dispute</strong> filters: reason
+            <span
+              >(Return, Unauthorized purchase, Incorrect invoice, High risk
+              order, Goods not received, Faulty goods)</span
+            >, status <span>(Lost, Response required, Under review, Won)</span>,
+            deadline
+          </p>
+          <p class="info-item">
+            <strong>Settlement</strong> filters: currency
+            <span>(USD, EUR, GBP, SEK, PLN)</span>, start date, end date
+          </p>
+        </div>
       </div>
+      <form action="" class="search-form">
+        <div class="input-group">
+          <input
+            type="search"
+            name="prompt"
+            id="prompt"
+            placeholder="Enter your search query..."
+          />
+        </div>
+        <button type="submit" class="search-button">Search</button>
+      </form>
+      <div id="output"></div>
     </div>
-    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/playground/main.ts"></script>
   </body>
 </html>
