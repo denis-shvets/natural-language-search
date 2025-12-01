@@ -107,9 +107,22 @@ const data = await response.json();
 
 ## Playground UI
 
-A full‑featured playground lives in the `playground` directory. It demonstrates the library in action with a live UI built with Vite. The development server for the playground is configured via `configs/vite/plugins/demo.ts`. Running `pnpm dev` starts both the library dev server and the playground UI.
+A full-featured playground lives in the `playground` directory. It demonstrates the library in action with a live UI built with Vite. The development server for the playground is configured via `configs/vite/plugins/demo.ts`. Running `pnpm dev` starts both the library dev server and the playground UI.
 
 The playground is compiled to `dist/playground` when you run the `build:playground` script.
+
+## Live demos
+
+- Library playground (music/search example): https://natural-language-search-playground.vercel.app/
+- E-commerce demo: https://natural-language-search-public.vercel.app/
+
+## Future vision
+
+- Pluggable providers: keep the same API while swapping in OpenRouter, OpenAI SDK, Azure OpenAI, Anthropic, Groq, or Together - configure base URL/headers once and go.
+- Multi-select enums: allow parameters to accept one or many whitelisted values (e.g., `region: ['US', 'SE']`), not just a single choice.
+- Production hardening: richer error handling, timeouts/retries, rate-limit awareness, and clearer fallbacks for malformed model responses.
+
+Contributions are welcome - feel free to open issues or PRs for providers, multi-select support, or production-hardening improvements.
 
 ## API Reference
 

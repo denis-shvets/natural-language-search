@@ -1,4 +1,4 @@
-const infoToggle = document.querySelector('#info-toggle');
+﻿const infoToggle = document.querySelector('#info-toggle');
 const infoDetails = document.querySelector('#info-details');
 const toggleIcon = document.querySelector('#toggle-icon');
 

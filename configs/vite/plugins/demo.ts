@@ -1,54 +1,36 @@
 import type { Plugin } from 'vite';
 import NaturalLanguageSearch, {
   ISO_TIMESTAMP,
-  type Domain,
+  type Domains,
 } from '../../../src';
 
-const ordersDomain: Domain = {
-  name: 'orders',
-  parameters: {
-    status: [
-      'Authorized',
-      'Captured',
-      'Partially captured',
-      'Expired',
-      'Canceled',
-    ],
-    createdFrom: ISO_TIMESTAMP,
-    createdTo: ISO_TIMESTAMP,
+const domains: Domains = [
+  {
+    name: 'playlist',
+    parameters: {
+      region: ['US', 'SE', 'DE', 'BR', 'IN'],
+      mood: ['Chill', 'Focus', 'Hype', 'Melancholic'],
+      device: ['Mobile', 'Desktop', 'TV'],
+      from: ISO_TIMESTAMP,
+      to: ISO_TIMESTAMP,
+    },
   },
-};
-
-const disputesDomain: Domain = {
-  name: 'disputes',
-  parameters: {
-    reason: [
-      'Return',
-      'Unauthorized purchase',
-      'Incorrect invoice',
-      'High risk order',
-      'Goods not received',
-      'Faulty goods',
-    ],
-    status: ['Lost', 'Response required', 'Under review', 'Won'],
-    deadline: ISO_TIMESTAMP,
+  {
+    name: 'listening-session',
+    parameters: {
+      subscription: ['Free', 'Premium', 'Family'],
+      skipRate: ['High', 'Medium', 'Low'],
+      from: ISO_TIMESTAMP,
+      to: ISO_TIMESTAMP,
+    },
   },
-};
-
-const settlementsDomain: Domain = {
-  name: 'settlements',
-  parameters: {
-    currency: ['USD', 'EUR', 'GBP', 'SEK', 'PLN'],
-    startDate: ISO_TIMESTAMP,
-    endDate: ISO_TIMESTAMP,
-  },
-};
+];
 
 export default function demo(env: Record<string, string>): Plugin {
   const nls = new NaturalLanguageSearch({
     apiKey: env.NATURAL_LANGUAGE_SEARCH_API_KEY!,
     model: env.NATURAL_LANGUAGE_SEARCH_MODEL!,
-    domains: [ordersDomain, disputesDomain, settlementsDomain],
+    domains,
   });
 
   return {
