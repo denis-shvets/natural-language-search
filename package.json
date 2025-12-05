@@ -20,6 +20,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:playground": "pnpm build && vite build --config vite.config.playground.ts",
     "preview": "vite preview",
     "release": "pnpm build && npm publish",
     "lint": "eslint .",

@@ -111,6 +111,8 @@ const data = await response.json();
 
 A full-featured playground lives in the `playground` directory. It demonstrates the library in action with a live UI built with Vite. Running `pnpm dev` starts the playground UI.
 
+The playground is compiled to `dist/playground` when you run the `build:playground` script.
+
 ## Live demos
 
 - Library playground (music/search example): https://natural-language-search-playground.vercel.app/
@@ -185,6 +187,7 @@ The dev command starts Vite for Library development: `vite.config.ts`.
 
 ```bash
 pnpm build            # Builds the library to ./dist
+pnpm build:playground # Builds the playground UI to ./dist/playground
 ```
 
 ### Linting & Formatting
@@ -198,6 +201,7 @@ pnpm format
 
 - `dev` – Starts Vite dev server for both library and playground.
 - `build` – Compiles TypeScript and bundles the library.
+- `build:playground` – Bundles the playground UI.
 - `preview` – Runs Vite preview.
 - `release` – Builds and publishes the package.
 - `lint` – Runs ESLint.
