@@ -40,6 +40,21 @@ h1 {
   }
 }
 
+.config {
+  display: flex;
+  flex-direction: column;
+}
+
+.config-group {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    margin: 5px 0;
+    text-align: right;
+  }
+}
+
 .search-form {
   display: flex;
   flex-direction: column;

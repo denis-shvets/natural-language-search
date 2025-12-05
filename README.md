@@ -70,8 +70,8 @@ const domains: Domains = [
 ];
 
 const searchClient = new NaturalLanguageSearch({
-  apiKey: process.env.OPENROUTER_API_KEY,
-  model: 'openai/gpt-4o-mini',
+  apiKey: '<OPENROUTER_API_KEY>',
+  model: '<OPENROUTER_MODEL>',
   domains,
 });
 
@@ -109,9 +109,7 @@ const data = await response.json();
 
 ## Playground UI
 
-A full-featured playground lives in the `playground` directory. It demonstrates the library in action with a live UI built with Vite. The development server for the playground is configured via `configs/vite/plugins/demo.ts`. Running `pnpm dev` starts both the library dev server and the playground UI.
-
-The playground is compiled to `dist/playground` when you run the `build:playground` script.
+A full-featured playground lives in the `playground` directory. It demonstrates the library in action with a live UI built with Vite. Running `pnpm dev` starts the playground UI.
 
 ## Live demos
 
@@ -159,13 +157,13 @@ Defines a search domain and its available parameters.
 ```typescript
 type Domain = {
   name: string; // e.g., 'orders', 'products'
-  parameters: Record<string, string[] | 'ISO-8601 UTC timestamp'>;
+  parameters: Record<string, string[] | ISOTimestamp>;
 };
 ```
 
 - `parameters`: A key‑value map where keys are parameter names. Values can be:
   - An array of strings for enum‑like values (e.g., `['pending', 'shipped']`).
-  - The string `'ISO-8601 UTC timestamp'` for date/time fields.
+  - The string `ISO_TIMESTAMP` for date/time fields.
 
 ## Development
 
@@ -187,7 +185,6 @@ The dev command starts Vite for Library development: `vite.config.ts`.
 
 ```bash
 pnpm build            # Builds the library to ./dist
-pnpm build:playground # Builds the playground UI to ./dist/playground
 ```
 
 ### Linting & Formatting
@@ -201,7 +198,6 @@ pnpm format
 
 - `dev` – Starts Vite dev server for both library and playground.
 - `build` – Compiles TypeScript and bundles the library.
-- `build:playground` – Bundles the playground UI.
 - `preview` – Runs Vite preview.
 - `release` – Builds and publishes the package.
 - `lint` – Runs ESLint.

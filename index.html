@@ -10,10 +10,30 @@
   <body>
     <div id="app">
       <h1>natural-language-search</h1>
+      <div class="config">
+        <div class="config-group">
+          <input
+            type="text"
+            name="api-key"
+            id="api-key"
+            placeholder="API key"
+          />
+          <p><a href="https://openrouter.ai/settings/keys" target="_blank" rel="noopener noreferrer">API keys</a></p>
+        </div>
+        <div class="config-group">
+          <input
+            type="text"
+            name="model"
+            id="model"
+            placeholder="Model"
+          />
+          <p><a href="https://openrouter.ai/models" target="_blank" rel="noopener noreferrer">Models</a></p>
+        </div>
+      </div>
       <div class="info-section">
         <button type="button" id="info-toggle">
           Demo is configured to search playlists and listening sessions
-          <span id="toggle-icon">+</span>
+          <span id="toggle-icon">▶</span>
         </button>
         <div id="info-details" class="collapsed">
           <p class="info-item">
@@ -35,7 +55,7 @@
             type="search"
             name="prompt"
             id="prompt"
-            placeholder="Enter your search query..."
+            placeholder="Search query"
           />
         </div>
         <button type="submit" class="search-button">Search</button>
