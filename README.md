@@ -2,6 +2,8 @@
 
 A lightweight library for natural language search functionality.
 
+Demo recording: https://www.youtube.com/watch?v=ucxk594awBU
+
 ## Installation
 
 ```bash
